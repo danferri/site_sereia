@@ -2600,7 +2600,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }, Math.random() * 12000 + 5000);
   </script>
   <script>
-  
+    document.querySelectorAll(".social-buttons").forEach(function(ev){
+        ev.addEventListener("click", function(evt){
+          var teste = evt.target.querySelector("i") || evt.target;
+          tracker.send("evento",{
+            category:"social buttons",
+            action:"clique",
+            label: teste.getAttribute("class").split("-")[1]
+          })
+        })
+      })
   </script>
 
 </body>
