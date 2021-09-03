@@ -2599,14 +2599,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       element.style.right = '20px';
     }, Math.random() * 12000 + 5000);
   </script>
+ 
   <script>
+    // TAG de clique em botões de midia social
     document.querySelectorAll(".social-buttons").forEach(function(ev){
         ev.addEventListener("click", function(evt){
-          var teste = evt.target.querySelector("i") || evt.target;
+          var aux = evt.target.querySelector("i") || evt.target;
           tracker.send("evento",{
             category:"social buttons",
             action:"clique",
-            label: teste.getAttribute("class").split("-")[1]
+            label: aux.getAttribute("class").split("-")[1]
           })
         })
       })
