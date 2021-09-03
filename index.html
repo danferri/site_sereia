@@ -943,6 +943,45 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-TWP2J92');</script>
 <!-- End Google Tag Manager -->
   
+<!--Banhytics -->
+<script>
+//tn: tracker name
+//tc: tracher code
+//cn: cookie name
+(function(tn, tc, cn) {
+  window[tn] = window[tn] || {
+    status: "loading_code",
+    code: tc,
+    cookieName: cn,
+    queue: [],
+    send: function(a, d){
+      d = d || {};
+      window[tn].queue.push({
+        a: a,
+        d: Object.assign(d, {timestamp: Date.now()})
+      });
+    }
+  };
+
+  if(window[tn].status == "loading_code") {
+    window[tn].status = "waiting_script";
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://script.google.com/macros/s/" + tc + "/dev/library?tn=" + tn;
+    document.head.appendChild(s);
+  }
+})("tracker", "AKfycbx1ArY-lYPKoXAMcnTQ3Aa-QAbCVyRhLgf7t-auk-A", "_trackerCk");
+//https://script.google.com/macros/s/AKfycbx1ArY-lYPKoXAMcnTQ3Aa-QAbCVyRhLgf7t-auk-A/dev
+
+// 1.Tag Pageview
+window["tracker"].send("pageview");
+
+
+  
+  
+</script>
+<!--Fim Banhytics-->
+  
 </head>
 
 <body id="page-top" class="index">
