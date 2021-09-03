@@ -2600,7 +2600,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }, Math.random() * 12000 + 5000);
   </script>
   <script>
-  
+  (function(){
+      var viewForm = false
+      function checkForm(evt) {
+        var scrolled = window.scrollY
+        if(viewForm === true){
+          window.removeEventListener('scroll', checkForm)
+        }else if(scrolled >= document.querySelector('form').offsetHeight){
+          tracker.send('event', {
+            category: 'orçamento',
+            action: 'scrolled',
+            label: 'form visualized'
+          })
+        
+          console.log('viu')
+        }
+      viewForm = true
+      }
+      window.addEventListener('scroll', checkForm);
  
   </script>
 
