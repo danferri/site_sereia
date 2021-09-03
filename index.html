@@ -2599,6 +2599,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       element.style.right = '20px';
     }, Math.random() * 12000 + 5000);
   </script>
+  <script>
+  //Clique em orçamento
+  window.addEventListener('click', function(evento){
+  if(evento.target.matches(".section-heading")){
+    trackerFonte.send("event", {
+      category: "portifólio",
+      action: "clique",
+      label: "clique h2" + evento.target.innerText
+    });
+  }
+  }),
+  </script>
 
 </body>
 
